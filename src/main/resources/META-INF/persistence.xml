@@ -1,0 +1,41 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <!-- Unidade de persistência para PostgreSQL -->
+    <persistence-unit name="PostgresUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>org.br.lucaspjardim.model.Cliente</class>
+        <class>org.br.lucaspjardim.model.Venda</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres" />
+            <property name="javax.persistence.jdbc.user" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="coco123" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="MySQLUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.seuprojeto.model.Cliente</class>
+
+        <properties>
+            <!-- Configuração de conexão com MySQL -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/seuBancoDeDados?useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.user" value="lucaspjardim"/>
+            <property name="javax.persistence.jdbc.password" value="coco123"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- Configurações do Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
